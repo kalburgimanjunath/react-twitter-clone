@@ -1,0 +1,17 @@
+.dashboard {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+}
+.asidebar {
+  flex: 1;
+  border-right: 1px solid #d7d7d7;
+}
+.post-contents {
+  /* padding: 10px; */
+  flex: 2;
+}
+.rightasidebar {
+  flex: 1;
+  border-left: 1px solid #d7d7d7;
+}
