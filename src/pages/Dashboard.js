@@ -20,7 +20,7 @@ export default function Dashboard() {
         <PostList title="content" />
       </div>
       <div className="rightasidebar">
-        <Widgets />
+        <Widgets title="Trends for you" />
       </div>
     </div>
   );
