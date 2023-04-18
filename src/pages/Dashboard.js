@@ -9,12 +9,6 @@ import {
 } from '../components/';
 import './dashboard.css';
 export default function Dashboard() {
-  // const [posts, setPosts] = useState([]);
-  // useEffect(() => {
-  //   fetch('https://dummyjson.com/posts')
-  //     .then((res) => res.json())
-  //     .then((result) => setPosts(result));
-  // }, [posts]);
   return (
     <div className="dashboard">
       <div className="asidebar">
@@ -23,11 +17,7 @@ export default function Dashboard() {
       </div>
       <div className="post-contents">
         <PostHeader title={'Home'} />
-        {/* {posts && posts.length > 1 ? ( */}
         <PostList title="Posts" />
-        {/* ) : (
-          <div>Loading....</div>
-        )} */}
       </div>
       <div className="rightasidebar">
         <Widgets title="Trends for you">

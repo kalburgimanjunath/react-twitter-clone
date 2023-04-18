@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PostFooter from './PostFooter';
 export default function PostList({ title, posts, limit = 5 }) {
   const [newposts, setPosts] = useState();
   useEffect(() => {
-    fetch('https://dummyjson.com/posts')
-      .then((res) => res.json())
-      .then((result) => setPosts(result));
+    setTimeout(() => {
+      fetch('https://dummyjson.com/posts')
+        .then((res) => res.json())
+        .then((result) => setPosts(result.posts));
+    }, 1000);
   }, [posts]);
-  const Post = ({ items }) => {
-    return (
-      items &&
-      items.map((item, id) => {
-        return <div key={id}>{item.title}</div>;
-      })
-    );
-  };
+
   return (
     <div>
       <div>{title}</div>
@@ -21,7 +17,13 @@ export default function PostList({ title, posts, limit = 5 }) {
         newposts.length > 0 &&
         newposts.length == limit &&
         newposts.map((item, id) => {
-          return <Post items={item.posts} key={id} />;
+          return (
+            <div key={id}>
+              <div>{item.title}</div>
+              <div>{item.details}</div>
+              <PostFooter />
+            </div>
+          );
         })}
     </div>
   );
