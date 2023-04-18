@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-export default function PostList({ title }) {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    fetch('https://dummyjson.com/posts')
-      .then((res) => res.json())
-      .then((result) => setPosts(result));
-  }, [posts]);
+export default function PostList({ title, posts }) {
+  // const [posts, setPosts] = useState([]);
+  // useEffect(() => {
+  //   fetch('https://dummyjson.com/posts')
+  //     .then((res) => res.json())
+  //     .then((result) => setPosts(result));
+  // }, [posts]);
 
   const Post = ({ items }) => {
-    console.log(items);
     return (
       items &&
       items.map((item, id) => {

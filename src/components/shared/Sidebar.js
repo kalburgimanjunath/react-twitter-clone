@@ -56,13 +56,16 @@ export default function Sidebar() {
       {sidebar &&
         sidebar.map((item) => {
           return (
-            <SideMenuItem
-              name={item.name}
-              key={item.id}
-              iconComponent={<h4>{item.name}</h4>}
-            />
+            <>
+              <SideMenuItem
+                name={item.name}
+                key={item.id}
+                iconComponent={<h4>{item.name}</h4>}
+              />
+            </>
           );
         })}
+      <button type="button">Tweet</button>
     </div>
   );
 }

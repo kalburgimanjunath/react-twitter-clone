@@ -8,7 +8,7 @@ import {
   Widgets,
 } from '../components/';
 import './dashboard.css';
-export default function Dashboard() {
+export default function Dashboard({ posts }) {
   return (
     <div className="dashboard">
       <div className="asidebar">
@@ -17,7 +17,7 @@ export default function Dashboard() {
       </div>
       <div className="post-contents">
         <PostHeader title={'Home'} />
-        <PostList title="content" />
+        <PostList title="" posts={posts} />
       </div>
       <div className="rightasidebar">
         <Widgets title="Trends for you" />
