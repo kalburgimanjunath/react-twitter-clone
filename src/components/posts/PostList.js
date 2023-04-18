@@ -8,6 +8,7 @@ export default function PostList({ title }) {
   }, [posts]);
 
   const Post = ({ items }) => {
+    console.log(items);
     return (
       items &&
       items.map((item, id) => {
