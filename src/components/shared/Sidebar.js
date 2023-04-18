@@ -54,12 +54,12 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       {sidebar &&
-        sidebar.map((item) => {
+        sidebar.map((item, id) => {
           return (
             <>
               <SideMenuItem
                 name={item.name}
-                key={item.id}
+                key={id}
                 iconComponent={<h4>{item.name}</h4>}
               />
             </>

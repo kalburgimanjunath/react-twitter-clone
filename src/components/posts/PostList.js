@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-export default function PostList({ title, posts }) {
-  // const [posts, setPosts] = useState([]);
-  // useEffect(() => {
-  //   fetch('https://dummyjson.com/posts')
-  //     .then((res) => res.json())
-  //     .then((result) => setPosts(result));
-  // }, [posts]);
-
+export default function PostList({ title, posts, limit = 5 }) {
+  const [newposts, setPosts] = useState();
+  useEffect(() => {
+    fetch('https://dummyjson.com/posts')
+      .then((res) => res.json())
+      .then((result) => setPosts(result));
+  }, [posts]);
   const Post = ({ items }) => {
     return (
       items &&
@@ -15,13 +14,13 @@ export default function PostList({ title, posts }) {
       })
     );
   };
-
   return (
     <div>
       <div>{title}</div>
-      {posts &&
-        posts.length > 0 &&
-        posts.map((item, id) => {
+      {newposts &&
+        newposts.length > 0 &&
+        newposts.length == limit &&
+        newposts.map((item, id) => {
           return <Post items={item.posts} key={id} />;
         })}
     </div>
