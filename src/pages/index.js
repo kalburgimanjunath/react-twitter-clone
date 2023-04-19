@@ -1,4 +1,5 @@
 import Home from './Home';
 import Dashboard from './Dashboard';
 import Profile from './Profile';
-export { Home, Dashboard, Profile };
+import Posts from './Posts';
+export { Home, Dashboard, Profile, Posts };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PostFooter from './PostFooter';
+import { Link } from 'react-router-dom';
 export default function PostList({ title, posts, limit = 5 }) {
   const [newposts, setPosts] = useState();
   useEffect(() => {
@@ -15,7 +16,9 @@ export default function PostList({ title, posts, limit = 5 }) {
   const POST = ({ item }) => {
     return (
       <>
-        <h4>{item.title}</h4>
+        <Link to={`../posts/${item.id}`}>
+          <h4>{item.title}</h4>
+        </Link>
         <div>{item.body}</div>
       </>
     );
