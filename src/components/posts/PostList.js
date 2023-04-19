@@ -6,24 +6,35 @@ export default function PostList({ title, posts, limit = 5 }) {
     setTimeout(() => {
       fetch('https://dummyjson.com/posts')
         .then((res) => res.json())
-        .then((result) => setPosts(result.posts));
+        .then((result) => {
+          console.log(result.posts);
+          setPosts(result.posts);
+        });
     }, 1000);
   }, [posts]);
-
+  const POST = ({ item }) => {
+    return (
+      <>
+        <h4>{item.title}</h4>
+        <div>{item.body}</div>
+      </>
+    );
+  };
+  let count = 0;
   return (
     <div>
-      <div>{title}</div>
       {newposts &&
         newposts.length > 0 &&
-        newposts.length == limit &&
         newposts.map((item, id) => {
-          return (
-            <div key={id}>
-              <div>{item.title}</div>
-              <div>{item.details}</div>
-              <PostFooter />
-            </div>
-          );
+          count++;
+          if (count <= limit) {
+            return (
+              <div key={id} className="section">
+                <POST item={item} />
+                <PostFooter />
+              </div>
+            );
+          }
         })}
     </div>
   );
